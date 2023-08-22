@@ -19,8 +19,6 @@
                 <p class="section-lead">
                     You can manage all users, such as editing, deleting and more.
                 </p>
-
-
                 <div class="row mt-4">
                     <div class="col-12">
                         <div class="card">
@@ -39,22 +37,19 @@
                                         </div>
                                     </form>
                                 </div>
-
                                 <div class="clearfix mb-3"></div>
-
                                 <div class="table-responsive">
                                     <table class="table-striped table">
                                         <tr>
-
                                             <th>No</th>
                                             <th>Name</th>
                                             <th>Email</th>
                                             <th>Phone</th>
                                             <th>Status</th>
+                                            <th>Action</th>
                                         </tr>
                                         @foreach ($users as $index => $user)
                                             <tr>
-
                                                 <td>
                                                     {{ $index + $users->firstItem() }}
                                                 </td>
@@ -66,18 +61,26 @@
                                                 </td>
                                                 <td>{{ $user->phone }}</td>
                                                 <td>
-                                                    <div class="badge badge-primary">
-                                                        @if ($user->email_verified_at != null)
+                                                    @if ($user->email_verified_at != null)
+                                                        <div class="badge badge-success">
                                                             Active
-                                                        @else
+                                                        </div>
+                                                    @else
+                                                        <div class="badge badge-warning">
                                                             Pending
-                                                        @endif
-                                                    </div>
+                                                        </div>
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    <a href="#" class="btn btn-icon btn-primary btn-sm">
+                                                        <i class="far fa-edit"></i>
+                                                    </a>
+                                                    <a href="#" class="btn btn-icon btn-danger btn-sm">
+                                                        <i class="far fa-trash-alt"></i>
+                                                    </a>
                                                 </td>
                                             </tr>
                                         @endforeach
-
-
                                     </table>
                                 </div>
                                 <div class="float-right">
