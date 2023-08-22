@@ -8,10 +8,10 @@
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
-            <li class="nav-item ">
-                <a href="{{ route('home') }}" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+            <li class="nav-item {{ request()->is('dashboard*') ? 'active' : '' }}">
+                <a href="{{ route('dashboard') }}" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
-            <li class="nav-item ">
+            <li class="nav-item {{ request()->is('user*') ? 'active' : '' }}">
                 <a href="{{ route('user.index') }}" class="nav-link "><i class="fas fa-users"></i><span>User
                         List</span></a>
             </li>

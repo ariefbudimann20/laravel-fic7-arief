@@ -19,9 +19,9 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('home', function () {
+    Route::get('dashboard', function () {
         return view('pages.dashboard', ['type_menu' => '']);
-    })->name('home')->middleware('can:dashboard');
+    })->name('dashboard')->middleware('can:dashboard');
     Route::get('profile-edit', function () {
         return view('pages.profile', ['type_menu' => '']);
     })->name('profile.edit');
